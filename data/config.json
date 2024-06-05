@@ -1,0 +1,19 @@
+{
+  "alpha" : 6,
+  "beta" : 0.2,
+  "k_h" : 100,
+  "d_r" : {
+    "agua" : 0,
+    "suelo_expuesto" : 0.2,
+    "vegetacion_baja" : 0.3,
+    "bosques_abiertos" : 0.5,
+    "selva_yungas" : 0.7
+  },
+  "d_w" : {
+    "agua" : 1,
+    "suelo_expuesto" : 1,
+    "vegetacion_baja" : 0.7,
+    "bosques_abiertos" : 0.5,
+    "selva_yungas" : 0.3
+  }
+}
