@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+
+\usepackage{EngReport}
+
+\graphicspath{{Images/}}
+\bibliography{Sources}
+\onehalfspacing
+\graphicspath{{images/}}
+\geometry{letterpaper, portrait, includeheadfoot=true, hmargin=1in, vmargin=1in}
+
+%\fontsize{font size}{vertsize (usually 1.2x)}\selectfont
+
+\begin{document}
+\renewcommand{\familydefault}{\rmdefault}
+
+\input{titlepage}
+\input{headerfooter}
+\renewcommand*\contentsname{Tabla de contenidos}
+\tableofcontents
+\pagebreak
+
+% % % % % % % % % % % % % % % % % % %
+% % % % %  SAMPLE IMAGE   % % % % % %https://www.overleaf.com/project/64eb940f11b4d5805e560df5
+% % % % % % % % % % % % % % % % % % %
+
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=.95\linewidth]{example-image-a}
+%     \caption{** Concept Image Caption **}
+%     \label{fig:my_label}
+% \end{figure}
+
+% % % % % % % % % % % % % % % % % % % %
+% % % % %  REPORT CONTENT   % % % % % %
+% % % % % % % % % % % % % % % % % % % %
+
+\fontsize{12}{20}\selectfont{
+
+\include{Ejercicio1.tex}
+
+
+}
+
+\pagebreak
+
+\printbibliography[title={Referencias}]
+
+\end{document}

@@ -1,0 +1,143 @@
+\graphicspath{{Images/}}
+
+\section{Preparación del proyecto QGIS}\label{cap:ej1}
+
+% TODO: \usepackage{graphicx} required
+
+\subsection{Preparación del proyecto QGIS}
+
+
+En primer lugar cargué las diferentes capas vectoriales que proporcionaba el TP y haciendo uso de QuickMapServices añadí la imágen satelital, obteniendo como resultado la figura a continuación.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/Img1}
+	\caption[]{Imágen satelital de Clorinda con las muestras positivas y de control.}
+	\label{fig:img1}
+\end{figure}
+
+A continuación fui agregando las diferentes capas ambientales raster, cambiando la representación de las coordenadas y cambiando sus estilos a pseudocolores monobanda con colores que consideraba representativos de la información a representar.
+
+\section{Desarrollo}
+
+\subsection{Ejercicio 1}
+
+Para conocer a que capa ambiental corresponde cada figura fui desactivando y activando siguiendo la lista presente en el enunciado.
+
+\begin{itemize}
+	\item 1 Distancia Agua $\rightarrow$ Figura \textbf{E}
+\end{itemize}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/Img2}
+	\caption{Capa distancia agua sobre Clorinda}
+	\label{fig:img2}
+\end{figure}
+
+\begin{itemize}
+	\item 5 Distancia Vegetacion Alta $\rightarrow$ Figura \textbf{D}
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/Img3}
+	\caption{Capa distancia vegetación sobre Clorinda}
+	\label{fig:img3}
+\end{figure}
+
+\begin{itemize}
+	\item 8 Temperatura Máxima Media $\rightarrow$ Figura \textbf{C}
+\end{itemize}
+
+
+% TODO: \usepackage{graphicx} required
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/Img4}
+	\caption{Capa temperatura máxima media sobre Clorinda}
+	\label{fig:img4}
+\end{figure}
+
+\begin{itemize}
+	\item 7 Agua superficial $\rightarrow$ Figura \textbf{B}
+\end{itemize}
+
+
+% TODO: \usepackage{graphicx} required
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/Img5}
+	\caption{Capa agua superficial sobre Clorinda}
+	\label{fig:img5}
+\end{figure}
+
+
+\begin{itemize}
+	\item 9 Humedad ambiental $\rightarrow$ Figura \textbf{A}
+\end{itemize}
+
+% TODO: \usepackage{graphicx} required
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/Img6}
+	\caption{Capa humedad ambiental sobre Clorinda}
+	\label{fig:img6}
+\end{figure}
+
+\subsection{Ejercicio 2}
+Segun lo indicado en la teoría la selección de hábitats por parte de los organismos (vectores o reservorios de agentes patógenos) respondería a la distribución de los recursos, la calidad de los mismos y a la biología de los organismos.
+
+\subsection{Ejercicio 3}
+Factores que controlan la distribución y dispersión de una especie pueden ser la disponibilidad de alimento, la calidad y densidad de parches de hábitats, la presencia de refugios, la densidad de depredades, la existencia de gradientes físicos y la conectividad entre parcehes. (\textbf{Respuesta j. Todas son correctas})
+
+\subsection{Ejercicio 4}
+La cantidad de inidividuos que un ambiente puede soportar podría depender de, entre otros, de la disponibilidad de alimentos, de la disponibilidad de sitios de refugio-nidificación, de la densidad de depredadores, de la cantidad de especies competidoras y del efecto directo e indirecto de las variables climáticas. (\textbf{Respuesta i. a), b), c), d) y e) son correctas})
+
+\subsection{Ejercicio 5}
+Podrían incidir sobre las expansiones, retracciones o desapariciones de las áreas de distribución de las especies reservorio o vectores los efectos directos e indirectos de las variables climática y ambientales y la calidad del hábitat. (\textbf{Respuesta i. a), b), c), d) y e) son correctas})
+
+\subsection{Ejercicio 6}
+Fui generando los mapas de distribución con las distintas capas ambientales y ninguna de las opciones es correcta. El modelo que más se aproxima es con la capa de porcentaje urbano.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Images/Ej6}
+	\caption{Mapa de distribución con la capa de porcentaje urbano.}
+	\label{fig:ej6}
+\end{figure}
+
+\subsection{Ejercicio 7 y 8}
+Tras generar el modelo con todas las variables disponibles observo la salida a través del archivo HTML. En el apartado de analisis de contribución de variables obtengo la siguiente tabla
+
+% TODO: \usepackage{graphicx} required
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Images/Contribuciones}
+	\caption{Contribuciones de cada variable al modelo.}
+	\label{fig:contribuciones}
+\end{figure}
+
+Siguiendo el criterio de que debe ser mayor a 14\% podemos concluir que las únicas variables que deberían participar en el modelo son la densidad urbana y el porcentaje urbano. Es decir, ninguna de las opciones del enunciado deberían ser consideradas.
+
+\subsection{Ejercicio 9}
+En función de la salida del modelo, para tomar decisiones debería tener en cuenta las siguientes consideraciones:
+
+\begin{itemize}
+	\item Utilizaría sitios positivos de control para evaluar el modelo antes de tomar decisiones.
+	\item Realizaría un nuevo modelo solo con las variables más representativas y lo confrontaría con aquel que presenta todas las variables.
+	\item Realizaría un muestreo a campo para corroborar la idoneidad de las predicciones generadas por el modelo.
+	\item Tomaría el modelo para generar una zonificación que indique el riesgo de contraer la enfermedad en la localidad.
+\end{itemize}
+
+\subsection{Ejercicio 10}
+Para el desarrollo de este ejercicio se exponen diferentes observaciones básicas sobre la epidemiología panorámica y se solicita que se selecciones verdadero o falso según corresponda:
+
+\begin{itemize}
+	\item Las enfermedades tienden a estar delimitadas solo por las condiciones climáticas. \textbf{Falso.}
+	\item Las enfermedades tienden a estar geográficamente delimitadas. \textbf{Verdadero.}
+	\item La variación espacial está relacionada a la variación de las condiciones físicas que soportan el patógeno y sus huéspedes o vectores. \textbf{Verdadero.}
+	\item La variación espacial está relacionada a la varaición de las condiciones biológicas que soportan al patógeno y sus huéspedes o vectores. \textbf{Verdadero.}
+	\item La delimitación de las condiciones ambientales y climáticas sobre mapas permiten predecir el riesgo. \textbf{Verdadero.}
+\end{itemize}
