@@ -1,0 +1,47 @@
+
+
+\section{Desarrollo}
+
+\subsection{Área de Estudio}
+
+Se contaba con datos de ovitrampas de un proyecto proveniente de la Facultad en Oro Verde, para definir el área de interés se llevó a cabo un procesamiento en Python con Folium y Pandas, esto permitió obtener gráficas sobre los puntos geográficos en los que teníamos información de densidad de mosquitos.
+
+\subsection{Obtención de Imágenes}
+
+\subsubsection{Dispositivo de Sensado}
+
+
+
+\subsubsection{Análisis Visual}
+
+\subsection{Descripción del Modelo}
+
+$$\frac{\partial \rho(P,t)}{\partial t}=\bigtriangledown .(D_R \bigtriangledown \rho)-\bigtriangledown.(\rho D_W V)- \bigtriangledown . (\rho K_H \bigtriangledown H) + \alpha - \beta$$
+
+Donde:
+
+\begin{center}
+	\begin{tabular}{|c | c | c|} 
+		\hline
+		\textbf{Símbolo} & \textbf{Variable} & \textbf{Valor}\\
+		\hline
+		$$P$$ & Densidad de mosquitos & No homogéneo \\
+		\hline
+		$\alpha$  & Tasa de nacimientos & $6 (m^2/dia)$ \\
+		\hline
+		$\beta$  & Tasa de muertes             & 0.2 \\
+		\hline
+		$V$   & Velocidad Viento Superficie & No homogéneo \\
+		\hline
+		$K_H$   & Tensor de atracción         & 100 \\
+		\hline
+		$H$    & Campo de atracción          & No homogéneo \\
+		\hline
+		$D_R$   & Tensor de difusión          & No homogéneo / ver Tabla 2 \\
+		\hline
+		$D_W$   & Tensor de rugosidad         & No homogéneo / ver Tabla 2\\
+		\hline
+	\end{tabular}
+\end{center}
+
+

@@ -9,6 +9,9 @@ Por la ubicación:
 
 ![Path and row](imgs/pathrow.png)
 
+Definición de la ROI:
+Se tomó los datos de las ovitrampas para todos los períodos de tiempo respecto a los cuales se tenían datos y se dejó un márgen de 1km para definir un área de interés cuadrada. Este cálculo está en *visualizarOvitrampas.ipynb*.
+
 La idea es:
 Tomar el mismo enfoque y ver si podemos aplicarlo a una sola imagen y luego a otras imagenes de diferentes resolución temporal. Toma una imagen, la expresa en RGB.
 
