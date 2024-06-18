@@ -4,5 +4,6 @@
 \contentsline {subsection}{\numberline {2.2}Obtención de imágenes}{4}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Dispositivo de sensado}{4}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Análisis visual}{5}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Descripción del modelo}{5}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Conclusiones}{7}{section.3}%
+\contentsline {subsection}{\numberline {2.3}Procesamiento de imágenes}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Descripción del modelo}{7}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Conclusiones}{9}{section.3}%

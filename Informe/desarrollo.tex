@@ -19,7 +19,7 @@ A partir de estos marcadores, se extendió el procesamiento de los datos definie
 \begin{figure}[H]
 	\includegraphics[width=0.7\textwidth]{ovitrampasConROI.png}
 	\centering
-	\caption{Posiciones de ovitrampas en Oro Verde con ROI delimitada..}
+	\caption{Posiciones de ovitrampas en Oro Verde con ROI delimitada.}
 	\label{fig:ovitrampas-ROI}
 	
 \end{figure}
@@ -81,10 +81,37 @@ Para este estudio es muy relevante la diversidad de bandas espectrales, permitie
 
 %% TODO: desarrollar la comparativa con Landsat 5 que es el utilizado en el trabajo.
 
-%% TODO: especificar la decisión de PATH y ROW. Hay imagenes
+%% ADD PATH and ROW
 \subsubsection{Análisis visual}
 
-Una vez obtenidos los datos de sensado de interés, se procedió a realizar un análisis visual detallado de la región utilizando el software QGIS. Este proceso incluyó la superposición de bandas espectrales como capas raster y de los datos de coordenadas de las ovitrampas como vectores.
+Como se mencionó previamente, se analizó la disponibilidad de imágenes a través de EarthExplorer. Se seleccionó la región de interés en esta plataforma y se estableció un rango de fechas según la disponibilidad de datos, comenzando con datos de  octubre de 2017. Se identificaron dos opciones de pasada del Landsat 8: una del path 227 y otra del 226, ambas para row 82. Estas opciones fueron marcadas en el mapa para evaluar la cobertura del área que proporcionaba cada una, como se muestra en \figurename \ref{fig:paths-rows}
+
+\begin{figure}[H]
+	\includegraphics[width=0.7\textwidth]{pathsrows.png}
+	\centering
+	\caption{Opciones de cobertura.}
+	\label{fig:paths-rows}
+	
+\end{figure}
+
+Finalmente, se decidió utilizar la opción de la izquierda, ya que en la opción de la derecha, Oro Verde se encuentra sobre el borde de la imagen, lo que limitaría la capacidad de ampliar la región de interés. Por lo tanto, se procedió a la descarga de las imágenes correspondientes a la fecha de interés, utilizando el path 227 y el row 82.
+
+Una vez obtenidos los datos de sensado de interés, se procedió a realizar un análisis visual detallado de la región utilizando el software QGIS. Este proceso incluyó la superposición de bandas espectrales como capas ráster y de los datos de coordenadas de las ovitrampas como vectores.
+
+\subsection{Procesamiento de imágenes}
+
+
+Con el objetivo de reducir el costo computacional y evitar el desperdicio de recursos, se procedió a definir un polígono delimitado por las coordenadas del área de interés. Este proceso incluyó la conversión de las coordenadas de las ovitrampas desde EPSG:4326 a EPSG:32620, seguido de la creación de un archivo de polígono con extensión \textit{.shp}.
+
+Una vez que se estableció correctamente el archivo de polígono, se realizó una verificación visual utilizando QGIS para validar los cálculos (\figurename \ref{fig:polygon}). Posteriormente, se implementó el recorte de todos los archivos \textit{.TIF} utilizando la herramienta \textit{gdalwarp} de \textit{GDAL}. REFERENCIA
+
+
+\begin{figure}[H]
+	\includegraphics[width=0.7\textwidth]{polygon.png}
+	\centering
+	\caption{Polígono generado.}
+	\label{fig:polygon}
+\end{figure}
 
 \subsection{Descripción del modelo}
 
@@ -92,6 +119,7 @@ $$\frac{\partial \rho(P,t)}{\partial t}=\bigtriangledown .(D_R \bigtriangledown 
 
 Donde:
 
+\onehalfspacing
 \begin{center}
 	\begin{tabular}{|c | c | c|} 
 		\hline
@@ -115,5 +143,34 @@ Donde:
 		\hline
 	\end{tabular}
 \end{center}
+
+Desglosando:
+
+$$\frac{\partial \rho}{\partial t} (P,t)= Rozamiento(P,t)-Transporte(P,t)-Atraccion(P,t)+\alpha (P,t) - \beta (P,t¸)$$
+
+
+Donde:
+\doublespacing
+
+$Rozamiento(P,t)=div[D_R (P,t) . \bigtriangledown \rho (P,t)]$
+
+$Transporte(P,t)=[D_W (P,t) \vec{W} (P,t) . \bigtriangledown \rho (P,t)]$
+
+$Atraccion(P,t) = div[K_H . \rho (P,t) . \bigtriangledown H (P,t)]$
+
+\singlespacing
+
+Con:
+
+\begin{itemize}
+	\item $\rho (P,t)$ = densidad de mosquitos
+	\item $D_R (P,t)$ = tensor de rozamiento
+	\item $D_W (P,t)$ = tensor de viento
+	\item $W (P,t)$ = velocidad del viento
+	\item $K_H$ = constante de atracción
+	\item $H(P,t)$ = campo de atracción
+	\item $\alpha (P,t)$ = razón de nacimientos
+	\item $\beta (P,t)$ = razón de muertes
+\end{itemize}
 
 
