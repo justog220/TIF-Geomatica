@@ -4,7 +4,7 @@
 
 \subsection{Área de estudio}
 
-Se contaba con datos de ovitrampas de un proyecto proveniente de la Facultad en Oro Verde, para definir el área de interés se llevó a cabo un procesamiento en Python con Folium y Pandas, esto permitió obtener gráficas sobre los puntos geográficos en los que teníamos información de densidad de mosquitos.
+Para este estudio, se utilizaron datos recolectados a partir de la utilización de ovitrampas por parte de un proyecto de la Facultad de Ingenieria de la Universidad Nacional de Entre Ríos en Oro Verde, Entre Ríos, Argentina. El área de interés se definió mediante un procesamiento en Python, utilizando las bibliotecas Folium y Pandas. Este enfoque nos permitió generar gráficos detallados que representan los puntos geográficos con información sobre la densidad de mosquitos registrada experimentalmente. En la siguiente imagen (\figurename \ref{fig:ovitrampas}), se muestra la salida de este procesamiento, con un marcador representando cada ovitrampa.
 	
 \begin{figure}[H]
 	\includegraphics[width=0.7\textwidth]{ovitrampas.png}
@@ -14,16 +14,77 @@ Se contaba con datos de ovitrampas de un proyecto proveniente de la Facultad en 
 	
 \end{figure}
 
+A partir de estos marcadores, se extendió el procesamiento de los datos definiendo un cuadrado que encierra a todos los puntos con un margen adicional de 1km (\figurename \ref{fig:ovitrampas-ROI}). Esta delimitación nos permitió enfocarnos en el área específica para la cuál tenemos datos, es decir, nuestra región de interés (ROI, Region of Interest).
 
+\begin{figure}[H]
+	\includegraphics[width=0.7\textwidth]{ovitrampasConROI.png}
+	\centering
+	\caption{Posiciones de ovitrampas en Oro Verde con ROI delimitada..}
+	\label{fig:ovitrampas-ROI}
+	
+\end{figure}
 
 %% Podría ser buena idea agregar una foto del área de interés desde distintas perspectivas, una en la proyección mundial, otra en el mapa y después directamente la imágen.
 
 
 \subsection{Obtención de imágenes}
 
+Para el análisis, se utilizaron imágenes satelitales provenientes de Landsat 8, las cuales se obtendrán a través del Earth Explorer del USGS (United States Geological Survey) CITA. Estas imágenes, con un nivel de análisis L2, propocionan la información necesaria para estudiar la densidad de mosquitos en el área de interes a través de distintas técnicas.
+
 \subsubsection{Dispositivo de sensado}
 
+El Landsat 8 es un satélite de observación terreste que forma parte del Programa Landsat, administrado por el USGS y la NASA CITA. Este satelite consta de dos sensores principales:
+\begin{itemize}
+	\item OLI (Operational Land Imager)
+	\item TIRS (Thermal Infrared Sensor)
+\end{itemize}
+
+A su vez, cada uno de estos sensores posee diversas bandas. Estas son listadas en la tabla \ref{table:landsat}.
+\onehalfspacing
+
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{|c | c | c|} 
+		\hline
+		\textbf{Banda} & \textbf{Longitud de onda ($\mu$)} & \textbf{Resolución espacial ($m$)}\\
+		\hline
+		1 - Coastal/Aerosol & 0.435-0.451 & 30 \\
+		\hline
+		2 - Azul & 0.452-0.512 & 30 \\
+		\hline
+		3 - Verde& 0.533-0.590 & 30 \\
+		\hline
+		4 - Roja & 0.636-0.673 & 30 \\
+		\hline
+		5 - NIR & 0.851-0.879 & 30 \\
+		\hline
+		6 - SWIR-1 & 1.566-1.651 & 30 \\
+		\hline
+		7 - SWIR-2 & 2.107-2.294 & 30 \\
+		\hline
+		8 - Pancromático & 0.503-0.676 & 15 \\
+		\hline
+		9 - Cirro & 1.363-1.384 & 30 \\
+		\hline
+		10 - TIR-1 & 10.60-11.19 & 100 \\
+		\hline
+		11 - TIR-2 & 11.50-12.51 & 100 \\
+		\hline
+	\end{tabular}
+\end{center}
+\caption{Tabla con información sobre las diferentes bandas que capta el Landsat 8}
+\label{table:landsat}
+\end{table}
+\singlespacing
+
+Para este estudio es muy relevante la diversidad de bandas espectrales, permitiendo analizar diversas características del terreno. Esta información, combinada con los datos de las ovitrampas, proporciona una visión integral y detallada del entorno.
+
+%% TODO: desarrollar la comparativa con Landsat 5 que es el utilizado en el trabajo.
+
+%% TODO: especificar la decisión de PATH y ROW. Hay imagenes
 \subsubsection{Análisis visual}
+
+Una vez obtenidos los datos de sensado de interés, se procedió a realizar un análisis visual detallado de la región utilizando el software QGIS. Este proceso incluyó la superposición de bandas espectrales como capas raster y de los datos de coordenadas de las ovitrampas como vectores.
 
 \subsection{Descripción del modelo}
 
