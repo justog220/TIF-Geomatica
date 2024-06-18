@@ -173,4 +173,79 @@ Con:
 	\item $\beta (P,t)$ = razón de muertes
 \end{itemize}
 
+\subsection{Cálculo de índices}
 
+El cálculo de índices en geomática es una herramienta crucial para llevar a cabo diversos análisis y aplicaciones a partir de la transformación de la información contenida en las imágenes satelitales. Por esta razón, en este trabajo se utiliza una selección de algunos de estos índices que son relevantes para cumplir con el objetivo, a continuación se detallan aquellos utilizados.
+
+\subsubsection{NDVI} \label{ndvi}
+
+\paragraph{Cálculo}
+
+El NDVI (Landsat Normalized Difference Vegetation Index) es usado para cuántificar cuán verde está la vegetación y es de utilidad a la hora de comprender la densidad de la vegetación. REFERENCIA.
+
+Su cálculo de forma generalizada se lleva a cabo con la siguiente combinación de bandas:
+
+$$NDVI=\frac{NIR-Red}{NIR+Red}$$
+
+En el caso específicos de bandas de Landsat 8:
+
+$$NDVI=\frac{Banda~5 - Banda~4}{Banda~5 + Banda~4}$$
+
+En primer instancia, se llevó a cabo el cálculo con la función de calculadora raster de QGIS. Sin embargo, luego se procedió a llevar a cabo una implementación en Python para su cálculo con el fin de tener el código necesario para automatizar su cálculo. Se evaluó una comparativa de los resultados obtenidos y el grado de precisión del cálculo era el mismo para ambos (\figurename \ref{fig:ndvi-comp})
+
+\begin{figure}[H]
+	\includegraphics[width=0.3\textwidth]{ndviComp.png}
+	\centering
+	\caption{Comparativa de cálculos del NDVI.}
+	\label{fig:ndvi-comp}
+\end{figure}
+
+\paragraph{Clasificación} \label{clasificacion}
+
+Para la clasificación del tipo de vegetación en base al NDVI se consideraron cuatro clases: 1) Suelo expuesto, 2) Vegetación baja, 3) Vegetación alta; las cuales se etiquetaron con el siguiente criterio (\tablename    \ref{table:ndvi-criterio}): 
+
+\onehalfspacing
+\begin{table}[H]
+\begin{center}
+	\begin{tabular}{|c | c |} 
+		\hline
+		\textbf{Rango} & \textbf{Tipo}\\
+		\hline
+		Suelo expuesto & $0.0-0.25$ \\
+		\hline
+		Vegetación baja & $0.25-0.4$ \\
+		\hline
+		Vegetación alta & $> 0.4$ \\
+		\hline
+	\end{tabular}
+\end{center}
+\caption{Criterio de clasificación en base al NDVI.}
+\label{table:ndvi-criterio}
+\end{table}
+\singlespacing
+
+\subsubsection{NDWI}
+
+El Índice Normalizado de Diferencia de Agua (NDWI) se emplea para destacar áreas de agua en una imágen captada por un satélite. Se utiliza principalmente para la detección y monitoreo de masas de agua
+
+\paragraph{Cálculo}
+
+El cálculo de este índice se lleva a cabo a partir de las bandas verdes y de infrarrojos cercanos, respetando la siguiente fórmula:
+
+$$NDWI = \frac{Green - NIR}{Green + NIR}$$
+
+Reformulando teniendo en cuenta la información correspondiente a las bandas del Landsat 8:
+
+$$NDWI = \frac{Banda~3-Banda~5}{Banda~3+Banda~5}$$
+
+El cálculo de este índice se realizo de la misma forma que en la sección \ref{ndvi}.
+
+
+\paragraph{Clasificación} 
+
+A las clases descritas en \ref{clasificacion}, se añade una nueva que representa cuerpos de agua. Se define como cuerpos de agua aquellos puntos con un valor de $NDWI$ superior a cero.
+
+
+\subsection{Clasificación de superficies}
+
+Habiendo definido claramente los tipos de superficie a identificar y los criterios para determinarlos, se llevó a cabo la clasificación de los puntos del raster siguiendo la secuencia lógica ya desarrollada de evaluación de índices.

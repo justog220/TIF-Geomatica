@@ -1,6 +1,6 @@
 import subprocess
 
-def crop_TIF(input_TIF, output_TIF, cutline_shapefile="poligono.shp"):
+def crop_TIF(input_TIF, output_TIF, cutline_shapefile):
     # Construir el comando gdalwarp
     comando_gdalwarp = [
         "gdalwarp",
