@@ -1,4 +1,9 @@
-# TIF-Geomatica
+# Análisis de Densidad de Mosquitos con Datos de Ovitrampas y Landsat 8
+
+Este proyecto tiene como objetivo analizar la densidad de mosquitos en la región de Oro Verde, Entre Ríos, Argentina, utilizando datos recolectados con ovitrampas y combinándolos con imágenes satelitales del Landsat 8.
+
+
+--------
 
 ## Decisiones
 
