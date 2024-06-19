@@ -20,7 +20,7 @@ Tomar el mismo enfoque y ver si podemos aplicarlo a una sola imagen y luego a ot
 ## Partes
 
 - [X] Designación del área de estudio
-	- [ ] Definir ROI. Substraer de las imagenes la región de interés.
+	- [X ] Definir ROI. Substraer de las imagenes la región de interés.
 - [X] Obtención de las imagenes
 - [ ] Describir las bandas, cada banda para qué es útil. Comparar con Landsat 5 y 8, los rangos y hacer la comparativa. No estaría ma citar y hacer un cuadro comparativo para después extrapolar.
 - [ ] Análisis visual. Lo que tiene. Mostrar la imagen en color real
@@ -70,13 +70,6 @@ Donde:
 El factor de propagación es 150x150 por día.
 
 -----
-
-## TODOs
-
-- [ ] Comenzar informe
-	- [ ] Bajar plantilla de latex
-	- [ ] Definir secciones en base a lo que hablamos
-	- [ ] Comenzar a redactar con lo que ya tengo.
 
 -----
 
