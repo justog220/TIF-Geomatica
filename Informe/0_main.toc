@@ -13,5 +13,14 @@
 \contentsline {subsubsection}{\numberline {2.5.2}NDWI}{10}{subsubsection.2.5.2}%
 \contentsline {paragraph}{\numberline {2.5.2.1}Cálculo}{10}{paragraph.2.5.2.1}%
 \contentsline {paragraph}{\numberline {2.5.2.2}Clasificación}{10}{paragraph.2.5.2.2}%
-\contentsline {subsection}{\numberline {2.6}Clasificación de superficies}{10}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Conclusiones}{12}{section.3}%
+\contentsline {subsubsection}{\numberline {2.5.3}NDBI}{10}{subsubsection.2.5.3}%
+\contentsline {paragraph}{\numberline {2.5.3.1}Cálculo}{10}{paragraph.2.5.3.1}%
+\contentsline {subsubsection}{\numberline {2.5.4}NDBaI}{11}{subsubsection.2.5.4}%
+\contentsline {paragraph}{\numberline {2.5.4.1}Cálculo}{11}{paragraph.2.5.4.1}%
+\contentsline {subsubsection}{\numberline {2.5.5}NDMI}{11}{subsubsection.2.5.5}%
+\contentsline {paragraph}{\numberline {2.5.5.1}Cálculo}{11}{paragraph.2.5.5.1}%
+\contentsline {subsection}{\numberline {2.6}Clasificación de superficies}{12}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Campo de atracción}{12}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Identificación de viviendas}{13}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Cálculo del campo de atracción}{14}{subsubsection.2.7.2}%
+\contentsline {section}{\numberline {3}Conclusiones}{16}{section.3}%

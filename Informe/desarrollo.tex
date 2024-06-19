@@ -191,7 +191,7 @@ En el caso específicos de bandas de Landsat 8:
 
 $$NDVI=\frac{Banda~5 - Banda~4}{Banda~5 + Banda~4}$$
 
-En primer instancia, se llevó a cabo el cálculo con la función de calculadora raster de QGIS. Sin embargo, luego se procedió a llevar a cabo una implementación en Python para su cálculo con el fin de tener el código necesario para automatizar su cálculo. Se evaluó una comparativa de los resultados obtenidos y el grado de precisión del cálculo era el mismo para ambos (\figurename \ref{fig:ndvi-comp})
+En primer instancia, se llevó a cabo el cálculo con la función de calculadora ráster de QGIS. Sin embargo, luego se procedió a llevar a cabo una implementación en Python para su cálculo con el fin de tener el código necesario para automatizar su cálculo. Se evaluó una comparativa de los resultados obtenidos y el grado de precisión del cálculo era el mismo para ambos (\figurename \ref{fig:ndvi-comp})
 
 \begin{figure}[H]
 	\includegraphics[width=0.3\textwidth]{ndviComp.png}
@@ -245,10 +245,47 @@ El cálculo de este índice se realizo de la misma forma que en la sección \ref
 
 A las clases descritas en \ref{clasificacion}, se añade una nueva que representa cuerpos de agua. Se define como cuerpos de agua aquellos puntos con un valor de $NDWI$ superior a cero.
 
+\subsubsection{NDBI}
+
+\paragraph{Cálculo}
+
+El cálculo de este índice se lleva a cabo a partir de las bandas verdes y de infrarrojos cercanos, respetando la siguiente fórmula:
+
+$$NDBI = \frac{SWIR1 - NIR}{SWIR1 + NIR}$$
+
+Reformulando teniendo en cuenta la información correspondiente a las bandas del Landsat 8:
+
+$$NDBI = \frac{Banda~6-Banda~5}{Banda~6+Banda~5}$$
+
+El cálculo de este índice se realizo de la misma forma que en la sección \ref{ndvi}.
+
+\subsubsection{NDBaI}
+
+El índice NDBaI, o Índice Normalizado de Diferencia de Bareness y Albedo Integrado combina información sobre la ausencia de vegetación (bareness) y la reflectancia de la superficie (albedo). Es útil para identificar áreas sin vegetación y evaluar la reflectancia de la superficie, proporcionando información complementaria en estudios de cobertura del suelo.
+
+\paragraph{Cálculo}
+
+$$NDBaI=\frac{SWIR1-TIRS1}{SWIR1+TIRS1}$$
+
+Para las bandas específicas del Landsat 8, la fórmula se ajusta a:
+
+$$NDBaI=\frac{Banda~6-Banda~10}{Banda~6+Banda~10}$$
+
+\subsubsection{NDMI}
+
+El Índice Normalizado de la Diferencia de Humedad (NDMI) se utiliza para evaluar la humedad en la superficie terrestre utilizando información de las bandas de infrarrojo cercano (NIR) e infrarrojo medio (SWIR1). Es especialmente útil para detectar y monitorear la presencia y cambios en la humedad del suelo y la vegetación, siendo aplicable en estudios ambientales y de recursos naturales.
+
+\paragraph{Cálculo}
+
+$$NDMI=\frac{NIR-SWIR1}{NIR+SWIR1}$$
+
+La fórmula para calcular el NDMI en el contexto de Landsat 8 es la siguiente:
+
+$$NDMI=\frac{Banda~5-Banda~6}{Banda~5+Banda~6}$$
 
 \subsection{Clasificación de superficies}
 
-Habiendo definido claramente los tipos de superficie a identificar y los criterios para determinarlos, se llevó a cabo la clasificación de los puntos del raster siguiendo la secuencia lógica ya desarrollada de evaluación de índices. Todos los procesamientos relevantes para llevar a cabo este cometido se realizaron con Python y módulos propios de este lenguaje.
+Habiendo definido claramente los tipos de superficie a identificar y los criterios para determinarlos, se llevó a cabo la clasificación de los puntos del ráster siguiendo la secuencia lógica ya desarrollada de evaluación de índices. Todos los procesamientos relevantes para llevar a cabo este cometido se realizaron con Python y módulos propios de este lenguaje.
 
 \begin{figure}[H]
 	\includegraphics[width=0.7\textwidth]{clasificacion.png}
@@ -256,3 +293,67 @@ Habiendo definido claramente los tipos de superficie a identificar y los criteri
 	\caption{Capa con la clasificación para las distintas clases.}
 	\label{fig:clasificacion}
 \end{figure}
+
+\subsection{Campo de atracción} \label{campo-de-atraccion}
+
+El campo de atracción es un ráster del tamaño del área de interés, el valor de un pixel se determina por la densidad de píxeles que representan viviendas en su entorno cercado. Cuando un píxel contiene una vivienda (es decir, una fuente de hematofuentes) y está rodeado por una ventana de 90x90 metros (3 píxeles) que contiene exclusivamente viviendas el valor de atracción es máximo, estableciéndose en 1. En contraste, un píxel que no contiene viviendas y está rodeado por áreas que no incorporan hematofuentes obtiene un valor de atracción nulo. REFERENCIA
+
+\subsubsection{Identificación de viviendas}
+
+La identificación precisa de viviendas es fundamental para la determinación del campo de atracción en el análisis de datos geospaciales. Inicialmente, se empleó únicamente el NDBI como criterio para clasificar áreas con posibles viviendas. 
+
+La validación de esta clasificación se llevó a cabo mediante un análisis visual en QGIS y un conocimiento profundo del área de estudio (ver \figurename \ref{fig:comparativa-ndbi}), se observó que el enfoque no logró identificar adecuadamente las zonas urbanas completas. Además, algunas áreas rurales fueron incorrectamente clasificadas como urbanas, indicando una falta de precisión en la distinción entre áreas construidas y no construidas.
+
+\begin{figure}[!tbp]
+	\begin{subfigure}[b]{0.49\textwidth}
+		\includegraphics[width=\textwidth, height=\textwidth]{ndbiComp.png}
+		\caption{Banda 5 del área de interés.}
+		\label{fig:f1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\includegraphics[width=\textwidth, height=\textwidth]{ndbi.png}
+		\caption{$NDBI$ positivo como vivienda.}
+		\label{fig:f2}
+	\end{subfigure}
+	\caption{Comparativa de la clasificación con el área de interés.}
+	\label{fig:comparativa-ndbi}
+\end{figure}
+
+Con esta información sobre la mesa, se tomó la decisión de implementar una clasificación no supervisada utilizando el algoritmo de K-Means. Este enfoque fue elegido para mitigar posibles sesgos introducidos anteriormente y mejorar la precisión en la identificación de áreas urbanas y rurales. Se integraron diversos índices, incluyendo NDBI, NDVI, NDMI y NDBaI, con el objetivo de capturar múltiples aspectos del entorno que podrían indicar presencia de viviendas y otras estructuras construidas.
+
+Después de calcular cada uno de los índices, se empleó el NDVI para generar una máscara identificando así los píxeles que corresponden a áreas de vegetación.
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{0.49\textwidth}
+		\includegraphics[width=\textwidth, height=\textwidth]{ndbi.png}
+		\caption{Clasificación con $NDBI$.}
+		\label{fig:ndbi-calculadora}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\includegraphics[width=\textwidth, height=\textwidth]{ndbikmeans.png}
+		\caption{Clasificación con K-Means.}
+		\label{fig:kmeans}
+	\end{subfigure}
+	\caption{Comparativa de la clasificación con el área de interés.}
+	\label{fig:comparativa-ndbi-kmeans}
+\end{figure}
+
+Como se puede observar en la Figura \ref{fig:comparativa-ndbi-kmeans}, la clasificación resulta significativamente más precisa en comparación con el método anterior basado únicamente en NDBI. Esta mejora es evidente al considerar el conocimiento detallado del área de interés, donde ahora se logra una distinción más clara entre zonas urbanas y rurales. Por lo tanto, a partir de este punto, se adopta este criterio basado en la clasificación con K-Means para identificar y delimitar áreas que contienen viviendas en el estudio.
+
+\subsubsection{Cálculo del campo de atracción}
+
+Basandose en los fundamentos establecidos en la sección \ref{campo-de-atraccion}, se procedió a implementar el algoritmo para calcular el campo de atracción. En términos generales, este cálculo se realiza para cada punto según la siguiente fórmula:
+
+$$Atraccion = 1 * \frac{Viviendas~vecinas}{Vecinas}$$
+
+Este proceso genera una matriz de números decimales que reflejan la atracción que el vector sienten hacia cada píxel debido a la presencia de hematofuentes, variando de 0 a 1 (ver Figura \ref{fig:atraccion}).
+
+\begin{figure}[H]
+	\includegraphics[width=0.7\textwidth]{campoDeAtraccion.png}
+	\centering
+	\caption{Campo de atracción para la región de interés.}
+	\label{fig:atraccion}
+\end{figure}
+

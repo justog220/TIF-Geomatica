@@ -20,8 +20,9 @@ import earthpy as et
 import earthpy.spatial as es
 import earthpy.plot as ep
 from modulos.cropTIF import crop_TIF
-from modulos.calculo_indices import calcular_ndvi, calcular_ndwi
-from modulos.clasificador import clasificar
+from modulos.calculo_indices import *
+from modulos.clasificador import clasificar_clases, clasificar_urbanizacion
+from modulos.calculo_de_atracción import calculo_campo_atraccion
 
 carpeta_recortadas = "ImagenesRecortadas"
 carpeta_no_recortadas = "Imagenes"
@@ -53,7 +54,8 @@ print("\nCálculo de índices:")
 archivo_b4 = subprocess.run(f"ls {carpeta_recortadas}/*B4.TIF", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True).stdout.strip("\n")
 archivo_b5 = subprocess.run(f"ls {carpeta_recortadas}/*B5.TIF", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True).stdout.strip("\n")
 
-calcular_ndvi(os.path.abspath(archivo_b4), os.path.abspath(archivo_b5), f"{carpeta_recortadas}/ndvi.TIF")
+ruta_ndvi = f"{carpeta_recortadas}/ndvi.TIF"
+calcular_ndvi(os.path.abspath(archivo_b4), os.path.abspath(archivo_b5), ruta_ndvi)
 
 print("\t- Se calculó el NDVI")
 
@@ -64,11 +66,11 @@ calcular_ndwi(os.path.abspath(archivo_b3), os.path.abspath(archivo_b5), f"{carpe
 print("\t- Se calculó el NDWI")
 
 print("*"*30)
-print("\nComienza clasificación.")
+print("\nComienza clasificación de clases.")
 
 archivo_clases = "ImagenesRecortadas/class.TIF"
 
-clasificar("ImagenesRecortadas/ndvi.TIF", "ImagenesRecortadas/ndwi.TIF", archivo_clases)
+clasificar_clases("ImagenesRecortadas/ndvi.TIF", "ImagenesRecortadas/ndwi.TIF", archivo_clases)
 
 
 import rasterio
@@ -107,3 +109,34 @@ ax.set_title('Clasificación de Imagen')
 
 # Mostrar la trama
 plt.show()
+
+print("\nFinaliza clasificación de clases.")
+
+#-------------------------------------------------
+
+print("*"*30)
+print("\nComienza cálculo de campo de atracción.")
+
+
+
+ruta_ndbi = f"{carpeta_recortadas}/ndbi.TIF"
+ruta_ndbai = f"{carpeta_recortadas}/ndbai.TIF"
+ruta_ndmi = f"{carpeta_recortadas}/ndmi.TIF"
+
+print("\t- Se calcula el índice NDBI")
+archivo_b6 = subprocess.run(f"ls {carpeta_recortadas}/*B6.TIF", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True).stdout.strip("\n")
+archivo_b5 = subprocess.run(f"ls {carpeta_recortadas}/*B5.TIF", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True).stdout.strip("\n")
+calcular_ndbi(os.path.abspath(archivo_b5), os.path.abspath(archivo_b6), os.path.abspath(ruta_ndbi))
+
+print("\t- Se calcula el índice NDBaI")
+archivo_b10 = subprocess.run(f"ls {carpeta_recortadas}/*B10.TIF", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True).stdout.strip("\n")
+calcular_ndbai(os.path.abspath(archivo_b6), os.path.abspath(archivo_b10), ruta_ndbai)
+
+print("\t- Se calcula el índice NDMI")
+calcular_ndbi(os.path.abspath(archivo_b5), os.path.abspath(archivo_b6), os.path.abspath(ruta_ndmi))
+
+
+print("\t- Se clasifica la urbanización")
+urbanizacion = clasificar_urbanizacion(os.path.abspath(ruta_ndbi), os.path.abspath(ruta_ndbai), os.path.abspath(ruta_ndmi), os.path.abspath(ruta_ndvi))
+
+atraccion = calculo_campo_atraccion(urbanizacion)
