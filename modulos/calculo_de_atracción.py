@@ -2,6 +2,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def calculo_campo_atraccion(viviendas):
+    """Calcula y visualiza el campo de atracción basado en la proximidad de viviendas
+
+    Args:
+        viviendas (numpy.ndarray): Matriz binaria donde cada elemento indica la presencia o no de una vivienda.
+
+    Returns:
+        numpy.ndarray: Matriz que representa el nivel de atracción de cada posición basado en la proximidad de otras viviendas.
+
+
+    Descripción:
+    ------------
+    Esta función calcula el campo de atracción para una matriz de viviendas dada. Utiliza una ventana de tamaño 3x3
+    alrededor de cada píxel para contar cuántas viviendas están presentes en esa vecindad. Luego, asigna un valor
+    de atracción proporcional al número de viviendas vecinas.
+
+    La función tambien genera un mapa de calor (heatmap) que visualiza el campo de atracción calculado. Este mapa
+    se guarda como 'campoDeAtraccion.png' en el directorio de trabajo actual y se muestra en pantalla.
+    """
     # Tamaño de la ventana (3 píxeles alrededor de cada píxel)
     ventana_size = 3
 

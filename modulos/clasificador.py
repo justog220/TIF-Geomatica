@@ -8,6 +8,25 @@ import os
 from matplotlib.colors import ListedColormap
 
 def clasificar_clases(ndvi_route, ndwi_route, output):
+    """Clasifica clases de cobertura del suelo basadas en valores de NDVI y NDWI de archivos raster.
+
+    Args:
+        ndvi_route (str): Ruta al archiv raster del Índice Normalizado de Diferencia de Vegetación (NDVI).
+        ndwi_route (str): Ruta al archivo raster del Índice Normalizado de Diferencia de Agua (NDWI).
+        output (str): Ruta donde se guardará el archivo raster resultante de la clasificación.
+    
+    Descripción:
+    -----------
+    Esta función clasifica diferentes clases de cobertura del suelo utilizando los valores de NDVI y NDWI:
+    - Clase 0: Agua (según el umbral definido en NDWI).
+    - Clase 1: Suelo expuesto (NDVI entre 0.0 y 0.25).
+    - Clase 2: Vegetación baja (NDVI entre 0.25 y 0.4).
+    - Clase 3: Vegetación alta (NDVI mayor o igual a 0.4).
+
+    La función abre los archivos raster de NDVI y NDWI usando rasterio, calcula máscaras para cada clase basadas en estos índices,
+    asigna los píxeles correspondientes a cada clase en un array de clasificación, y guarda el resultado en un archivo raster
+    especificado por `output`
+    """
     with rasterio.open(ndwi_route) as src:
         ndwi = src.read(1)
         width = src.width
@@ -43,38 +62,26 @@ def clasificar_clases(ndvi_route, ndwi_route, output):
             with rasterio.open(output, 'w', **profile) as dst:
                 dst.write(classification, 1)
 
-# def clasificar_construcciones(ndbi_route, output):
-#     with rasterio.open(ndbi_route) as src:
-#         ndbi = src.read(1)
-#         width = src.width
-#         height = src.height
-
-#     umbral_construccion = 0.0
-
-#     mascara_construccion = ndbi > umbral_construccion
-
-#     # Crear un array para la clasificación final
-#     classification = np.zeros_like(ndbi, dtype=np.uint8)
-
-#     # Asignar las clases según las máscaras
-#     classification[mascara_construccion] = 1
-
-
-#     # Guardar la clasificación en un nuevo archivo TIFF
-#     with rasterio.open(ndbi_route) as src:
-#             profile = src.profile
-
-#             # Actualizar perfil para el archivo de clasificación
-#             profile.update(
-#                 dtype=rasterio.uint8,
-#                 count=1
-#             )
-
-#             # Guardar la clasificación en un archivo TIFF
-#             with rasterio.open(output, 'w', **profile) as dst:
-#                 dst.write(classification, 1)
-
 def clasificar_urbanizacion(ndbi_route, ndbai_route, ndmi_route, ndvi_route):
+    """
+    Realiza la clasificación de zonas de urbanización utilizando índices espectrales y K-means clustering.
+
+    Args:
+        ndbi_route (str): Ruta al archivo raster del Índice de Diferencia Normalizada de Edificación (NDBI).
+        ndbai_route (str): Ruta al archivo raster del Índice Normalizado de Diferencia de Bareness y Albedo Integrado (NDBaI).
+        ndmi_route (str): Ruta al archivo raster del Índice de Diferencia Normalizada de Humedad (NDMI).
+        ndvi_route (str): Ruta al archivo raster del Índice de Vegetación de Diferencia Normalizada (NDVI).
+
+    Returns:
+        numpy.ndarray: Matriz booleana donde True representa zonas clasificadas como urbanas y False como no urbanas.
+
+    Descripción:
+    ------------
+    Esta función utiliza los índices espectrales NDBI, NDBaI, NDMI y NDVI para clasificar zonas de urbanización mediante K-means clustering.
+    Primero, aplica máscaras basadas en el NDVI para filtrar áreas de vegetación. Luego, crea un DataFrame con los valores de índices
+    filtrados y aplica K-means con 2 clusters para identificar áreas urbanas y no urbanas. El usuario selecciona manualmente y en base a su conocimiento del área el label que
+    representa las zonas urbanas, y se devuelve una matriz booleana que indica las zonas clasificadas como urbanas.
+    """
     with rasterio.open(ndbi_route) as bandNdvi:
         ndbi = bandNdvi.read(1).astype('float32')
 
