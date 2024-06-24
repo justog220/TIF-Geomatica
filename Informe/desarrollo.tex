@@ -2,6 +2,8 @@
 
 \section{Desarrollo}
 
+En este informe se detalla el procedimiento seguido para el procesamiento de datos, el cual es crucial para su posible replicación futura. Este procedimiento incluye la obtención de imágenes, el uso de diferentes índices espectrales, y la clasificación de superficies mediante técnicas avanzadas de análisis de datos, todo orientado a extraer la información necesaria para un método numérico concreto de la bibliografía. La resolución matemática del modelo se proyecta para el futuro.
+
 \subsection{Área de estudio}
 
 Para este estudio, se utilizaron datos recolectados a partir de la utilización de ovitrampas por parte de un proyecto de la Facultad de Ingenieria de la Universidad Nacional de Entre Ríos en Oro Verde, Entre Ríos, Argentina. El área de interés se definió mediante un procesamiento en Python, utilizando las bibliotecas Folium y Pandas. Este enfoque nos permitió generar gráficos detallados que representan los puntos geográficos con información sobre la densidad de mosquitos registrada experimentalmente. En la siguiente imagen (\figurename \ref{fig:ovitrampas}), se muestra la salida de este procesamiento, con un marcador representando cada ovitrampa.
@@ -115,6 +117,8 @@ Una vez que se estableció correctamente el archivo de polígono, se realizó un
 
 \subsection{Descripción del modelo}
 
+El modelo presentado fue inicialmente propuesto por Raffy y Tran y ha sido aplicado en otras regiones de nuestro país, como en Salta. El modelo se describe matemáticamente de la siguiente manera:
+
 $$\frac{\partial \rho(P,t)}{\partial t}=\bigtriangledown .(D_R \bigtriangledown \rho)-\bigtriangledown.(\rho D_W V)- \bigtriangledown . (\rho K_H \bigtriangledown H) + \alpha - \beta$$
 
 Donde:
@@ -173,6 +177,8 @@ Con:
 	\item $\beta (P,t)$ = razón de muertes
 \end{itemize}
 
+La resolución de estas ecuaciones se plantea como una proyección futura. En secciones posteriores se lleva a cabo la extracción de la información necesaria para aplicar el modelo en el área de estudio, como la medición de los parámetros de rugosidad y difusión ($D_W$ y $D_R$) a partir de la clasificación de superficies. La integración de estos datos permitirá la resolución del modelo, facilitando la predicción de la dinámica de las poblaciones de mosquitos en el área analizada.
+
 \subsection{Cálculo de índices}
 
 El cálculo de índices en geomática es una herramienta crucial para llevar a cabo diversos análisis y aplicaciones a partir de la transformación de la información contenida en las imágenes satelitales. Por esta razón, en este trabajo se utiliza una selección de algunos de estos índices que son relevantes para cumplir con el objetivo, a continuación se detallan aquellos utilizados.
@@ -181,7 +187,7 @@ El cálculo de índices en geomática es una herramienta crucial para llevar a c
 
 \paragraph{Cálculo}
 
-El NDVI (Landsat Normalized Difference Vegetation Index) es usado para cuántificar cuán verde está la vegetación y es de utilidad a la hora de comprender la densidad de la vegetación \citation{noauthor_landsat_nodate}. REFERENCIA.
+El NDVI (Landsat Normalized Difference Vegetation Index) es usado para cuántificar cuán verde está la vegetación y es de utilidad a la hora de comprender la densidad de la vegetación. REFERENCIA.
 
 Su cálculo de forma generalizada se lleva a cabo con la siguiente combinación de bandas:
 

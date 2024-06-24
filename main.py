@@ -11,6 +11,7 @@ from modulos.cropTIF import crop_TIF
 from modulos.calculo_indices import *
 from modulos.clasificador import clasificar_clases, clasificar_urbanizacion
 from modulos.calculo_de_atracción import calculo_campo_atraccion
+from modulos.obtener_densidad_inicial import obtener_densidad_inicial
 
 carpeta_recortadas = "ImagenesRecortadas"
 carpeta_no_recortadas = "Imagenes"
@@ -128,3 +129,11 @@ print("\t- Se clasifica la urbanización")
 urbanizacion = clasificar_urbanizacion(os.path.abspath(ruta_ndbi), os.path.abspath(ruta_ndbai), os.path.abspath(ruta_ndmi), os.path.abspath(ruta_ndvi))
 
 atraccion = calculo_campo_atraccion(urbanizacion)
+
+
+#-------------------------------------------------
+
+print("*"*30)
+print("\nComienza cálculo del mapa de densidad inicial.")
+
+mapa_de_densidad = obtener_densidad_inicial(os.path.abspath(archivo_b4), os.path.abspath("data/datos_ovitrampas_transformados.csv"))
