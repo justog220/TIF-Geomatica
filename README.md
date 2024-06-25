@@ -20,8 +20,8 @@ Este proyecto tiene como objetivo analizar la densidad de mosquitos en la regió
 
 ## 📂 Estructura de directorios
 
-- ***Imagenes/***:
-- ***Informe/***:
+- ***Imagenes/***: Directorio con imágenes Landsat para el Path y Row decidido que luego serán recortadas al área de interés.
+- ***Informe/***: Directorio con los archivos utilizados para crear el informe.
 - ***data/***:
 - ***imgs/***:
 - ***modulos/***:
