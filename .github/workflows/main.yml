@@ -12,13 +12,13 @@ jobs:
 
     - name: Move file to root
       run: |
-        mv Informe/0_main.pdf .
+        mv Informe/0_main.pdf Informe.pdf
         
     - name: Commit and push changes
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add file.txt
+        git add Informe.pdf
         git commit -m "Move file to root directory"
         git push
       env:
