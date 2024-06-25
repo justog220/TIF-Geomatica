@@ -1,14 +1,25 @@
-name: copy files
-on: [push]
-jobs:
+name: Move File to Root on Push
 
-  build:
-    name: Build
+on: [push]
+
+jobs:
+  move-file:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@master
-    - name: copy file
-      uses: canastro/copy-file-action@master
-      with:
-        source: "Informe/0_main.pdf"
-        target: "Informe.pdf"
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Move file to root
+      run: |
+        mv Informe/0_main.pdf .
+        
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add file.txt
+        git commit -m "Move file to root directory"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
