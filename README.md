@@ -18,7 +18,7 @@
 
 Este proyecto tiene como objetivo analizar la densidad de mosquitos en la región de Oro Verde, Entre Ríos, Argentina, utilizando datos recolectados con ovitrampas y combinándolos con imágenes satelitales del Landsat 8. 
 
-Surge a partir de los trabajos propuestos por Rotela (2012), quien desarrolló una metodología para el análisis de la densidad de mosquitos en otras regiones. Nuestro objetivo es adaptar y aplicar esta metodología a una nueva área de interés, evaluando su eficacia y aportando nuevas perspectivas y datos específicos de la región de Oro Verde. Con esto, buscamos contribuir al control de vectores y mejorar las estrategias de prevención de enfermedades transmitidas por mosquitos.
+Surge a partir de los trabajos propuestos por [Rotela (2012)](#-referencias), quien desarrolló una metodología para el análisis de la densidad de mosquitos en otras regiones. Nuestro objetivo es adaptar y aplicar esta metodología a una nueva área de interés, evaluando su eficacia y aportando nuevas perspectivas y datos específicos de la región de Oro Verde. Con esto, buscamos contribuir al control de vectores y mejorar las estrategias de prevención de enfermedades transmitidas por mosquitos.
 
 ## 📂 Estructura de directorios
 
@@ -44,4 +44,6 @@ Surge a partir de los trabajos propuestos por Rotela (2012), quien desarrolló u
 	- walter.elias@uner.edu.ar
 
 ### 📚 Referencias
+
+Rotela, C. H. (2012). Desarrollo de Modelos e indicadores Remotos de Riesgo Epidemiológico de Dengue en Argentina (29-45) [Tesis de Doctorado en Ciencias Biológicas, Instituto de Altos Estudios Espaciales «Mario Gulich», Comisión Nacional de Actividades Espaciales, Universidad Nacional de Córdoba]. https://www.mundosano.org/wp-content/uploads/2018/03/Desarrollo-de-Modelos-e-Indicadores.pdf
 
