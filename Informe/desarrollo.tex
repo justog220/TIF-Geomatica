@@ -363,3 +363,35 @@ Este proceso genera una matriz de números decimales que reflejan la atracción 
 	\label{fig:atraccion}
 \end{figure}
 
+\subsection{Densidad Inicial}
+
+En esta subsección, se detalla el procedimiento utilizado para calcular la densidad inicial de huevos en el área de interés, empleando técnicas avanzadas de procesamiento de imágenes y análisis de datos geoespaciales.
+
+\subsubsection{Lectura y Procesamiento de Datos}
+
+El primer paso consistió en la lectura y procesamiento de los datos de entrada. Se utilizaron dos tipos de datos: una imagen rasterizada en formato TIF y un archivo CSV con coordenadas y conteos de huevos.
+
+El archivo CSV contiene datos puntuales con coordenadas y conteos de huevos, los cuales se filtraron por una fecha específica a modo de ejemplo para enfocarse en un momento determinado del estudio, que se corresponde con aquella en la que más huevos se registraron.
+
+\subsubsection{Interpolación Gaussiana}
+
+Para calcular la densidad espacial de los huevos, se empleó una técnica de interpolación basada en una función gaussiana bidimensional. La función gaussiana es una representación matemática que describe una distribución normal en dos dimensiones, caracterizada por su forma de campana:
+
+\begin{equation}
+	G(x, y) = \exp\left(-\frac{(x - x_0)^2 + (y - y_0)^2}{2\sigma^2}\right)
+\end{equation}
+
+Se utilizó esta función para modelar la distribución espacial de los huevos alrededor de cada punto de datos. 
+
+\subsubsection{Visualización de Resultados}
+
+Finalmente, los resultados se visualizaron superponiendo el mapa de densidad calculado sobre la imagen TIF original. Esta visualización permite observar la distribución espacial de la densidad de huevos en la región de estudio (Figura \ref{fig:densidad}).
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{densidad.png}
+	\centering
+	\caption{Densidad inicial para la región de interés.}
+	\label{fig:densidad}
+\end{figure}
+
+
