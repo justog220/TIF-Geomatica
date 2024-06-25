@@ -4,6 +4,8 @@
 
 En este informe se detalla el procedimiento seguido para el procesamiento de datos, el cual es crucial para su posible replicación futura. Este procedimiento incluye la obtención de imágenes, el uso de diferentes índices espectrales, y la clasificación de superficies mediante técnicas avanzadas de análisis de datos, todo orientado a extraer la información necesaria para un método numérico concreto de la bibliografía. La resolución matemática del modelo se proyecta para el futuro.
 
+El código utilizado para llevar a cabo estos procesos se encuentra disponible públicamente en \href{https://github.com/justog220/TIF-Geomatica/}{GitHub} . Esta plataforma facilita la accesibilidad y la replicabilidad de los métodos utilizados, promoviendo la transparencia y la reutilización de los recursos desarrollados durante el proyecto.
+
 \subsection{Área de estudio}
 
 Para este estudio, se utilizaron datos recolectados a partir de la utilización de ovitrampas por parte de un proyecto de la Facultad de Ingenieria de la Universidad Nacional de Entre Ríos en Oro Verde, Entre Ríos, Argentina. El área de interés se definió mediante un procesamiento en Python, utilizando las bibliotecas Folium y Pandas. Este enfoque nos permitió generar gráficos detallados que representan los puntos geográficos con información sobre la densidad de mosquitos registrada experimentalmente. En la siguiente imagen (\figurename \ref{fig:ovitrampas}), se muestra la salida de este procesamiento, con un marcador representando cada ovitrampa.
@@ -31,11 +33,11 @@ A partir de estos marcadores, se extendió el procesamiento de los datos definie
 
 \subsection{Obtención de imágenes}
 
-Para el análisis, se utilizaron imágenes satelitales provenientes de Landsat 8, las cuales se obtendrán a través del Earth Explorer del USGS (United States Geological Survey) CITA. Estas imágenes, con un nivel de análisis L2, propocionan la información necesaria para estudiar la densidad de mosquitos en el área de interes a través de distintas técnicas.
+Para el análisis, se utilizaron imágenes satelitales provenientes de Landsat 8, las cuales se obtendrán a través del Earth Explorer del USGS (United States Geological Survey) \parencite{noauthor_earthexplorer_nodate}¸. Estas imágenes, con un nivel de análisis L2, propocionan la información necesaria para estudiar la densidad de mosquitos en el área de interes a través de distintas técnicas.
 
 \subsubsection{Dispositivo de sensado}
 
-El Landsat 8 es un satélite de observación terreste que forma parte del Programa Landsat, administrado por el USGS y la NASA CITA. Este satelite consta de dos sensores principales:
+El Landsat 8 es un satélite de observación terreste que forma parte del Programa Landsat, administrado por el USGS y la NASA \parencite{noauthor_landsat_2021}. Este satelite consta de dos sensores principales:
 \begin{itemize}
 	\item OLI (Operational Land Imager)
 	\item TIRS (Thermal Infrared Sensor)
@@ -98,14 +100,14 @@ Como se mencionó previamente, se analizó la disponibilidad de imágenes a trav
 
 Finalmente, se decidió utilizar la opción de la izquierda, ya que en la opción de la derecha, Oro Verde se encuentra sobre el borde de la imagen, lo que limitaría la capacidad de ampliar la región de interés. Por lo tanto, se procedió a la descarga de las imágenes correspondientes a la fecha de interés, utilizando el path 227 y el row 82.
 
-Una vez obtenidos los datos de sensado de interés, se procedió a realizar un análisis visual detallado de la región utilizando el software QGIS. Este proceso incluyó la superposición de bandas espectrales como capas ráster y de los datos de coordenadas de las ovitrampas como vectores.
+Una vez obtenidos los datos de sensado de interés, se procedió a realizar un análisis visual detallado de la región utilizando el software QGIS \parencite{noauthor_qgis_nodate}. Este proceso incluyó la superposición de bandas espectrales como capas ráster y de los datos de coordenadas de las ovitrampas como vectores.
 
 \subsection{Procesamiento de imágenes}
 
 
 Con el objetivo de reducir el costo computacional y evitar el desperdicio de recursos, se procedió a definir un polígono delimitado por las coordenadas del área de interés. Este proceso incluyó la conversión de las coordenadas de las ovitrampas desde EPSG:4326 a EPSG:32620, seguido de la creación de un archivo de polígono con extensión \textit{.shp}.
 
-Una vez que se estableció correctamente el archivo de polígono, se realizó una verificación visual utilizando QGIS para validar los cálculos (\figurename \ref{fig:polygon}). Posteriormente, se implementó el recorte de todos los archivos \textit{.TIF} utilizando la herramienta \textit{gdalwarp} de \textit{GDAL}. REFERENCIA
+Una vez que se estableció correctamente el archivo de polígono, se realizó una verificación visual utilizando QGIS para validar los cálculos (\figurename \ref{fig:polygon}). Posteriormente, se implementó el recorte de todos los archivos \textit{.TIF} utilizando la herramienta \textit{gdalwarp} de \textit{GDAL} \parencite{frank_gdalwarp_nodate}. 
 
 
 \begin{figure}[H]
@@ -117,7 +119,7 @@ Una vez que se estableció correctamente el archivo de polígono, se realizó un
 
 \subsection{Descripción del modelo}
 
-El modelo presentado fue inicialmente propuesto por Raffy y Tran y ha sido aplicado en otras regiones de nuestro país, como en Salta. El modelo se describe matemáticamente de la siguiente manera:
+El modelo presentado fue inicialmente propuesto por Raffy y Tran y ha sido aplicado en otras regiones de nuestro país, como en Salta \parencite{rotela_desarrollo_2012}. El modelo se describe matemáticamente de la siguiente manera:
 
 $$\frac{\partial \rho(P,t)}{\partial t}=\bigtriangledown .(D_R \bigtriangledown \rho)-\bigtriangledown.(\rho D_W V)- \bigtriangledown . (\rho K_H \bigtriangledown H) + \alpha - \beta$$
 
@@ -187,7 +189,7 @@ El cálculo de índices en geomática es una herramienta crucial para llevar a c
 
 \paragraph{Cálculo}
 
-El NDVI (Landsat Normalized Difference Vegetation Index) es usado para cuántificar cuán verde está la vegetación y es de utilidad a la hora de comprender la densidad de la vegetación. REFERENCIA.
+El NDVI (Landsat Normalized Difference Vegetation Index) es usado para cuántificar cuán verde está la vegetación y es de utilidad a la hora de comprender la densidad de la vegetación \parencite{noauthor_landsat_nodate}.
 
 Su cálculo de forma generalizada se lleva a cabo con la siguiente combinación de bandas:
 
@@ -232,7 +234,7 @@ Para la clasificación del tipo de vegetación en base al NDVI se consideraron c
 
 \subsubsection{NDWI}
 
-El Índice Normalizado de Diferencia de Agua (NDWI) se emplea para destacar áreas de agua en una imágen captada por un satélite. Se utiliza principalmente para la detección y monitoreo de masas de agua
+El Índice Normalizado de Diferencia de Agua (NDWI) se emplea para destacar áreas de agua en una imágen captada por un satélite. Se utiliza principalmente para la detección y monitoreo de masas de agua \parencite{noauthor_ndwi_2021}. 
 
 \paragraph{Cálculo}
 
@@ -253,6 +255,8 @@ A las clases descritas en \ref{clasificacion}, se añade una nueva que represent
 
 \subsubsection{NDBI}
 
+\parencite{zha_use_2003}.
+
 \paragraph{Cálculo}
 
 El cálculo de este índice se lleva a cabo a partir de las bandas verdes y de infrarrojos cercanos, respetando la siguiente fórmula:
@@ -267,7 +271,7 @@ El cálculo de este índice se realizo de la misma forma que en la sección \ref
 
 \subsubsection{NDBaI}
 
-El índice NDBaI, o Índice Normalizado de Diferencia de Bareness y Albedo Integrado combina información sobre la ausencia de vegetación (bareness) y la reflectancia de la superficie (albedo). Es útil para identificar áreas sin vegetación y evaluar la reflectancia de la superficie, proporcionando información complementaria en estudios de cobertura del suelo.
+El índice NDBaI, o Índice Normalizado de Diferencia de Bareness y Albedo Integrado combina información sobre la ausencia de vegetación (bareness) y la reflectancia de la superficie (albedo) \parencite{hongmei_zhao_use_2005}s. Es útil para identificar áreas sin vegetación y evaluar la reflectancia de la superficie, proporcionando información complementaria en estudios de cobertura del suelo.
 
 \paragraph{Cálculo}
 
@@ -302,7 +306,7 @@ Habiendo definido claramente los tipos de superficie a identificar y los criteri
 
 \subsection{Campo de atracción} \label{campo-de-atraccion}
 
-El campo de atracción es un ráster del tamaño del área de interés, el valor de un pixel se determina por la densidad de píxeles que representan viviendas en su entorno cercado. Cuando un píxel contiene una vivienda (es decir, una fuente de hematofuentes) y está rodeado por una ventana de 90x90 metros (3 píxeles) que contiene exclusivamente viviendas el valor de atracción es máximo, estableciéndose en 1. En contraste, un píxel que no contiene viviendas y está rodeado por áreas que no incorporan hematofuentes obtiene un valor de atracción nulo. REFERENCIA
+El campo de atracción es un ráster del tamaño del área de interés, el valor de un pixel se determina por la densidad de píxeles que representan viviendas en su entorno cercado. Cuando un píxel contiene una vivienda (es decir, una fuente de hematofuentes) y está rodeado por una ventana de 90x90 metros (3 píxeles) que contiene exclusivamente viviendas el valor de atracción es máximo, estableciéndose en 1. En contraste, un píxel que no contiene viviendas y está rodeado por áreas que no incorporan hematofuentes obtiene un valor de atracción nulo \parencite{rotela_desarrollo_2012}. 
 
 \subsubsection{Identificación de viviendas}
 
@@ -363,17 +367,17 @@ Este proceso genera una matriz de números decimales que reflejan la atracción 
 	\label{fig:atraccion}
 \end{figure}
 
-\subsection{Densidad Inicial}
+\subsection{Densidad inicial}
 
 En esta subsección, se detalla el procedimiento utilizado para calcular la densidad inicial de huevos en el área de interés, empleando técnicas avanzadas de procesamiento de imágenes y análisis de datos geoespaciales.
 
-\subsubsection{Lectura y Procesamiento de Datos}
+\subsubsection{Lectura y procesamiento de datos}
 
 El primer paso consistió en la lectura y procesamiento de los datos de entrada. Se utilizaron dos tipos de datos: una imagen rasterizada en formato TIF y un archivo CSV con coordenadas y conteos de huevos.
 
 El archivo CSV contiene datos puntuales con coordenadas y conteos de huevos, los cuales se filtraron por una fecha específica a modo de ejemplo para enfocarse en un momento determinado del estudio, que se corresponde con aquella en la que más huevos se registraron.
 
-\subsubsection{Interpolación Gaussiana}
+\subsubsection{Interpolación gaussiana}
 
 Para calcular la densidad espacial de los huevos, se empleó una técnica de interpolación basada en una función gaussiana bidimensional. La función gaussiana es una representación matemática que describe una distribución normal en dos dimensiones, caracterizada por su forma de campana:
 
@@ -383,7 +387,7 @@ Para calcular la densidad espacial de los huevos, se empleó una técnica de int
 
 Se utilizó esta función para modelar la distribución espacial de los huevos alrededor de cada punto de datos. 
 
-\subsubsection{Visualización de Resultados}
+\subsubsection{Visualización de resultados}
 
 Finalmente, los resultados se visualizaron superponiendo el mapa de densidad calculado sobre la imagen TIF original. Esta visualización permite observar la distribución espacial de la densidad de huevos en la región de estudio (Figura \ref{fig:densidad}).
 
@@ -395,3 +399,24 @@ Finalmente, los resultados se visualizaron superponiendo el mapa de densidad cal
 \end{figure}
 
 
+\subsection{Integración de módulos}
+
+Habiendo desarrollado los módulos con las funcionalidades necesarias para obtener la información requerida por el modelo, se procedió a integrarlos para realizar desde el procesamiento inicial de imágenes hasta la generación de mapas de densidad.
+
+\subsubsection{Preparación del entorno y recorte de imágenes}
+
+El punto de partida es la preparación del entorno de trabajo con las carpetas utilizadas y el recorte de las imágenes raster, destinado a optimizar los recursos computacionales. Este paso asegura la extracción de áreas relevantes para análisis detallados.
+
+\subsubsection{Cálculo de índices}
+
+Recortadas las imágenes, se procede al cálculo de diversos índices espectrales, que proporcionaran, por ejemplo, información vital sobre la presencia de vegetación y/o humedad.
+
+\subsubsection{Clasificación de suelo y urbanización}
+
+Con los índices calculados, se lleva a cabo la clasificación de las clases. Permitiendo identificar y mapear distintas categorías como Suelo expuesto, Vegetación baja, Vegetación alta y Agua. Además, se realiza un análisis de la urbanización mediante agrupamientos no supervisado de los píxeles en base a los diversos índices calculados para ellos.
+
+\subsubsection{Cálculo del campo de atracción y análisis de densidad}
+
+Con las clasificaciones previas y los datos de ovitrampas se está en condiciones de llevar a cabo el cálculo del campo de atracción como se describió previamente y la estimación de la densidad incial de mosquitos. 
+
+Este flujo de trabajo integrado y estructura facilita la interpretación de datos complejos y la extracción de características fundamentales para la aplicación posterior en el modelo matemático.

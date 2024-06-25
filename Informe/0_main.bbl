@@ -1,0 +1,323 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/global//global/global}
+    \entry{noauthor_earthexplorer_nodate}{misc}{}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{title}{{EarthExplorer}}
+      \field{urlday}{16}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://earthexplorer.usgs.gov/
+      \endverb
+      \verb{url}
+      \verb https://earthexplorer.usgs.gov/
+      \endverb
+    \endentry
+    \entry{hongmei_zhao_use_2005}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=92488cec365676cac020e2bf68f402f0}{%
+           family={{Hongmei Zhao}},
+           familyi={H\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=76f658880929c6a947f13ce42f2a690d}{%
+           family={{Xiaoling Chen}},
+           familyi={X\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Seoul, Korea}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d034962dbc2191510f28fe82dd2f48fe}
+      \strng{fullhash}{d034962dbc2191510f28fe82dd2f48fe}
+      \strng{bibnamehash}{d034962dbc2191510f28fe82dd2f48fe}
+      \strng{authorbibnamehash}{d034962dbc2191510f28fe82dd2f48fe}
+      \strng{authornamehash}{d034962dbc2191510f28fe82dd2f48fe}
+      \strng{authorfullhash}{d034962dbc2191510f28fe82dd2f48fe}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-7803-9050-8}
+      \field{journaltitle}{Proceedings. 2005 {IEEE} {International} {Geoscience} and {Remote} {Sensing} {Symposium}, 2005. {IGARSS} '05.}
+      \field{title}{Use of normalized difference bareness index in quickly mapping bare areas from {TM}/{ETM}+}
+      \field{urlday}{19}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{volume}{3}
+      \field{year}{2005}
+      \field{urldateera}{ce}
+      \field{pages}{1666\bibrangedash 1668}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1109/IGARSS.2005.1526319
+      \endverb
+      \verb{urlraw}
+      \verb http://ieeexplore.ieee.org/document/1526319/
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/document/1526319/
+      \endverb
+    \endentry
+    \entry{noauthor_landsat_2021}{misc}{}
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Landsat 8 launched on February 11, 2013, from Vandenberg Air Force Base, California, on an Atlas-V 401 rocket, with the extended payload fairing (EPF) from United Launch Alliance, LLC. (The Landsat 8 Launch in Quotes.) The Landsat 8 satellite payload consists of two science instruments—the Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS).}
+      \field{month}{11}
+      \field{title}{Landsat 8 {|} {Landsat} {Science}}
+      \field{urlday}{16}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/justo/Zotero/storage/IVBNV9V4/landsat-8.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://landsat.gsfc.nasa.gov/satellites/landsat-8/
+      \endverb
+      \verb{url}
+      \verb https://landsat.gsfc.nasa.gov/satellites/landsat-8/
+      \endverb
+    \endentry
+    \entry{noauthor_landsat_nodate}{misc}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{title}{Landsat {Normalized} {Difference} {Vegetation} {Index} {|} {U}.{S}. {Geological} {Survey}}
+      \field{urlday}{18}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Landsat Normalized Difference Vegetation Index | U.S. Geological Survey:/home/justo/Zotero/storage/IJ6D6TVA/landsat-normalized-difference-vegetation-index.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index
+      \endverb
+      \verb{url}
+      \verb https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index
+      \endverb
+    \endentry
+    \entry{noauthor_ndwi_2021}{misc}{}
+      \list{language}{1}{%
+        {es}%
+      }
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{El índice NDWI se utiliza para detectar masas de agua y estimar la turbiedad. Obtenga más información sobre el Índice de Agua de Diferencia Normalizada.}
+      \field{month}{9}
+      \field{shorttitle}{{NDWI}}
+      \field{title}{{NDWI}: {Fórmula} {Del} Índice {E} {Interpretación} {De} {Valores}}
+      \field{urlday}{18}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/justo/Zotero/storage/H7QPC7BS/ndwi.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://eos.com/es/make-an-analysis/ndwi/
+      \endverb
+      \verb{url}
+      \verb https://eos.com/es/make-an-analysis/ndwi/
+      \endverb
+    \endentry
+    \entry{noauthor_qgis_nodate}{misc}{}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{title}{{QGIS}}
+      \field{urlday}{16}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Welcome to the QGIS project!:/home/justo/Zotero/storage/TQ3K2PM9/site.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://qgis.org/en/site/
+      \endverb
+      \verb{url}
+      \verb https://qgis.org/en/site/
+      \endverb
+    \endentry
+    \entry{rotela_desarrollo_2012}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=034d69992d3ecbf4d1d08e7e45db0bfd}{%
+           family={Rotela},
+           familyi={R\bibinitperiod},
+           given={Camilo\bibnamedelima Hugo},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Instituto de Altos Estudios Espaciales "Mario Gulich", Comisión Nacional de Actividades Espaciales, Universidad Nacional de Córdoba}%
+      }
+      \list{language}{1}{%
+        {es-es}%
+      }
+      \list{location}{1}{%
+        {Córdoba, Argentina}%
+      }
+      \strng{namehash}{034d69992d3ecbf4d1d08e7e45db0bfd}
+      \strng{fullhash}{034d69992d3ecbf4d1d08e7e45db0bfd}
+      \strng{bibnamehash}{034d69992d3ecbf4d1d08e7e45db0bfd}
+      \strng{authorbibnamehash}{034d69992d3ecbf4d1d08e7e45db0bfd}
+      \strng{authornamehash}{034d69992d3ecbf4d1d08e7e45db0bfd}
+      \strng{authorfullhash}{034d69992d3ecbf4d1d08e7e45db0bfd}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Rotela, C.H. (2012). Modelado de la difusión espacio-temporal de vectores sobre paisajes caracterizados a partir de información de sensores remotos. En Desarrollo de Modelos e Indicadores Remotos de Riesgo Epidemiológico de Dengue en Argentina (pp. 29-45). Tesis de Doctorado, Universidad Nacional de Córdoba.}
+      \field{title}{Desarrollo de {Modelos} e indicadores {Remotos} de {Riesgo} {Epidemiológico} de {Dengue} en {Argentina}}
+      \field{type}{Tesis de {Doctorado} en {Ciencias} {Biológicas}}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb https://www.mundosano.org/wp-content/uploads/2018/03/Desarrollo-de-Modelos-e-Indicadores.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.mundosano.org/wp-content/uploads/2018/03/Desarrollo-de-Modelos-e-Indicadores.pdf
+      \endverb
+    \endentry
+    \entry{frank_gdalwarp_nodate}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c76b2b0b1042a8fd14ac6493667d5292}{%
+           family={Warmerdam},
+           familyi={W\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c76b2b0b1042a8fd14ac6493667d5292}
+      \strng{fullhash}{c76b2b0b1042a8fd14ac6493667d5292}
+      \strng{bibnamehash}{c76b2b0b1042a8fd14ac6493667d5292}
+      \strng{authorbibnamehash}{c76b2b0b1042a8fd14ac6493667d5292}
+      \strng{authornamehash}{c76b2b0b1042a8fd14ac6493667d5292}
+      \strng{authorfullhash}{c76b2b0b1042a8fd14ac6493667d5292}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{GDAL Documentation}
+      \field{title}{gdalwarp}
+      \field{type}{Documentation}
+      \field{urlday}{25}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://gdal.org/programs/gdalwarp.html
+      \endverb
+      \verb{url}
+      \verb https://gdal.org/programs/gdalwarp.html
+      \endverb
+    \endentry
+    \entry{zha_use_2003}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=2bf97bb90355d9636fc169cf4700fbfd}{%
+           family={Zha},
+           familyi={Z\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=db78cb9680889168cd377cb6775b53dc}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=79fbfa9fa73cc7e7780f92958b6ec61c}{%
+           family={Ni},
+           familyi={N\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{1c05baeb0fcb3dd429ea535b8a1fb9de}
+      \strng{fullhash}{090b090b59d42ed882d77153da7c90c7}
+      \strng{bibnamehash}{090b090b59d42ed882d77153da7c90c7}
+      \strng{authorbibnamehash}{090b090b59d42ed882d77153da7c90c7}
+      \strng{authornamehash}{1c05baeb0fcb3dd429ea535b8a1fb9de}
+      \strng{authorfullhash}{090b090b59d42ed882d77153da7c90c7}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0143-1161, 1366-5901}
+      \field{journaltitle}{International Journal of Remote Sensing}
+      \field{month}{1}
+      \field{number}{3}
+      \field{title}{Use of normalized difference built-up index in automatically mapping urban areas from {TM} imagery}
+      \field{urlday}{19}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{volume}{24}
+      \field{year}{2003}
+      \field{urldateera}{ce}
+      \field{pages}{583\bibrangedash 594}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1080/01431160304987
+      \endverb
+      \verb{urlraw}
+      \verb https://www.tandfonline.com/doi/full/10.1080/01431160304987
+      \endverb
+      \verb{url}
+      \verb https://www.tandfonline.com/doi/full/10.1080/01431160304987
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

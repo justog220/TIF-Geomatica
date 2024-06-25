@@ -6,7 +6,9 @@
 
 
 \graphicspath{{Images/}}
-\bibliography{Sources}
+\usepackage[style=apa, backend=biber, natbib=true]{biblatex}
+\addbibresource{Sources.bib}
+
 %%\onehalfspacing
 
 
@@ -44,7 +46,7 @@
 \fontsize{12}{20}\selectfont{
 
 \singlespacing
-\setlength{\parskip}{1em}
+\setlength{\parskip}{0.5em}
 \include{introduccion}
 \include{desarrollo}
 \include{conclusiones}
@@ -53,6 +55,6 @@
 
 \pagebreak
 
-\printbibliography[title={Referencias}]
+\printbibliography[title=Bibliografía]
 
 \end{document}

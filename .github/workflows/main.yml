@@ -1,4 +1,4 @@
-name: Move File to Root on Push
+name: Copy File to Root on Push
 
 on: [push]
 
@@ -10,9 +10,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Move file to root
+    - name: Copy file to root
       run: |
-        mv Informe/0_main.pdf Informe.pdf
+        cp Informe/0_main.pdf Informe.pdf
         
     - name: Commit and push changes
       run: |

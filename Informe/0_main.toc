@@ -10,7 +10,7 @@
 \contentsline {subsubsection}{\numberline {2.5.1}NDVI}{9}{subsubsection.2.5.1}%
 \contentsline {paragraph}{\numberline {2.5.1.1}Cálculo}{9}{paragraph.2.5.1.1}%
 \contentsline {paragraph}{\numberline {2.5.1.2}Clasificación}{10}{paragraph.2.5.1.2}%
-\contentsline {subsubsection}{\numberline {2.5.2}NDWI}{11}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.2}NDWI}{10}{subsubsection.2.5.2}%
 \contentsline {paragraph}{\numberline {2.5.2.1}Cálculo}{11}{paragraph.2.5.2.1}%
 \contentsline {paragraph}{\numberline {2.5.2.2}Clasificación}{11}{paragraph.2.5.2.2}%
 \contentsline {subsubsection}{\numberline {2.5.3}NDBI}{11}{subsubsection.2.5.3}%
@@ -18,13 +18,18 @@
 \contentsline {subsubsection}{\numberline {2.5.4}NDBaI}{12}{subsubsection.2.5.4}%
 \contentsline {paragraph}{\numberline {2.5.4.1}Cálculo}{12}{paragraph.2.5.4.1}%
 \contentsline {subsubsection}{\numberline {2.5.5}NDMI}{12}{subsubsection.2.5.5}%
-\contentsline {paragraph}{\numberline {2.5.5.1}Cálculo}{13}{paragraph.2.5.5.1}%
+\contentsline {paragraph}{\numberline {2.5.5.1}Cálculo}{12}{paragraph.2.5.5.1}%
 \contentsline {subsection}{\numberline {2.6}Clasificación de superficies}{13}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Campo de atracción}{14}{subsection.2.7}%
-\contentsline {subsubsection}{\numberline {2.7.1}Identificación de viviendas}{15}{subsubsection.2.7.1}%
-\contentsline {subsubsection}{\numberline {2.7.2}Cálculo del campo de atracción}{16}{subsubsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.8}Densidad Inicial}{17}{subsection.2.8}%
-\contentsline {subsubsection}{\numberline {2.8.1}Lectura y Procesamiento de Datos}{17}{subsubsection.2.8.1}%
-\contentsline {subsubsection}{\numberline {2.8.2}Interpolación Gaussiana}{18}{subsubsection.2.8.2}%
-\contentsline {subsubsection}{\numberline {2.8.3}Visualización de Resultados}{18}{subsubsection.2.8.3}%
+\contentsline {subsection}{\numberline {2.7}Campo de atracción}{13}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Identificación de viviendas}{14}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Cálculo del campo de atracción}{15}{subsubsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.8}Densidad inicial}{16}{subsection.2.8}%
+\contentsline {subsubsection}{\numberline {2.8.1}Lectura y procesamiento de datos}{16}{subsubsection.2.8.1}%
+\contentsline {subsubsection}{\numberline {2.8.2}Interpolación gaussiana}{17}{subsubsection.2.8.2}%
+\contentsline {subsubsection}{\numberline {2.8.3}Visualización de resultados}{17}{subsubsection.2.8.3}%
+\contentsline {subsection}{\numberline {2.9}Integración de módulos}{18}{subsection.2.9}%
+\contentsline {subsubsection}{\numberline {2.9.1}Preparación del entorno y recorte de imágenes}{18}{subsubsection.2.9.1}%
+\contentsline {subsubsection}{\numberline {2.9.2}Cálculo de índices}{19}{subsubsection.2.9.2}%
+\contentsline {subsubsection}{\numberline {2.9.3}Clasificación de suelo y urbanización}{19}{subsubsection.2.9.3}%
+\contentsline {subsubsection}{\numberline {2.9.4}Cálculo del campo de atracción y análisis de densidad}{19}{subsubsection.2.9.4}%
 \contentsline {section}{\numberline {3}Conclusiones}{20}{section.3}%
