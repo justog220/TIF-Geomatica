@@ -42,7 +42,7 @@ from matplotlib.colors import ListedColormap
 from modulos.crop_tif import crop_tif
 from modulos.calculo_indices import calcular_ndvi, calcular_ndwi, calcular_ndbi, calcular_ndbai
 from modulos.clasificador import clasificar_clases, clasificar_urbanizacion
-from modulos.calculo_de_atracción import calculo_campo_atraccion
+from modulos.calculo_de_atraccion import calculo_campo_atraccion
 from modulos.obtener_densidad_inicial import obtener_densidad_inicial
 
 parser = argparse.ArgumentParser(description="Procesar carpetas de imágenes y ruta del polígono.")
