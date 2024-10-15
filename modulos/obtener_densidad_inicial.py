@@ -1,8 +1,53 @@
+"""
+obtener_densidad_inicial.py
+
+Este módulo contiene funciones para calcular la densidad inicial de una región basada en 
+datos de entrada específicos.
+
+Dependencias:
+-------------
+- numpy: Biblioteca para el cálculo numérico en Python.
+- pandas: Biblioteca para la manipulación y análisis de datos.
+- geopandas: Extensión de pandas para datos geoespaciales.
+- rasterio: Biblioteca para leer y escribir datos raster.
+- shapely: Biblioteca para manipulación y análisis de geometrías planas.
+- scipy: Biblioteca para cálculos científicos y técnicos.
+
+Funciones:
+----------
+- calcular_densidad_inicial(ruta_datos,
+                            ruta_poligono): Calcula la densidad inicial de una 
+                                            región utilizando datos de entrada y 
+                                            un polígono de referencia.
+
+    Args:
+        ruta_datos (str): Ruta al archivo de datos de entrada 
+                            (por ejemplo, datos de población).
+        ruta_poligono (str): Ruta al archivo shapefile que 
+                                define la región de interés.
+
+    Returns:
+        float: Densidad inicial calculada de la región.
+
+    Descripción:
+    ------------
+    Esta función lee los datos de entrada y el shapefile del polígono de referencia, 
+    y luego calcula la densidad inicial de la región definida por el polígono. 
+    La densidad se calcula como la relación entre la cantidad de datos (por ejemplo, 
+    población) y el área del polígono.
+
+Ejemplo de uso:
+---------------
+from modulos.obtener_densidad_inicial import calcular_densidad_inicial
+
+densidad = calcular_densidad_inicial('/ruta/a/datos.csv', '/ruta/a/poligono.shp')
+print(f'Densidad inicial: {densidad}')
+"""
+
 import pandas as pd
 import rasterio
 import numpy as np
 import matplotlib.pyplot as plt
-import subprocess
 
 # Función gaussiana
 def gaussian(x, y, x0, y0, sigma):
@@ -21,7 +66,8 @@ def gaussian(x, y, x0, y0, sigma):
     return np.exp(-((x - x0)**2 + (y - y0)**2) / (2 * sigma**2))
 
 def obtener_densidad_inicial(tif_bg, ruta_datos):
-    """Calcula un mapa de densidad de huevos utilizando una interpolación gaussiana sobre una imagen TIF de fondo.
+    """Calcula un mapa de densidad de huevos utilizando una interpolación gaussiana 
+    sobre una imagen TIF de fondo.
 
     Args:
         tif_bg (str): Ruta al archivo TIF que se usará como fondo.
@@ -34,9 +80,6 @@ def obtener_densidad_inicial(tif_bg, ruta_datos):
     with rasterio.open(tif_bg) as src:
         # Leer la imagen TIF
         tif_image = src.read(1)  # Lee la banda 1 (puedes ajustar según la banda que necesites)
-        # Obtener transformación y CRS (sistema de referencia de coordenadas)
-        transform = src.transform
-        crs = src.crs
         # Obtener límites de la imagen
         x_min, y_min, x_max, y_max = src.bounds
         # Resolución de píxeles en la imagen
@@ -62,7 +105,7 @@ def obtener_densidad_inicial(tif_bg, ruta_datos):
     for lat, lon, eggs in zip(latitudes, longitudes, nro_huevos):
         # Convertir coordenadas a índices de píxeles
         col, row = int((lon - x_min) / pixel_width), int((lat - y_min) / pixel_height)
-        
+
         # Aplicar la función gaussiana alrededor del punto (row, col)
         y, x = np.indices(density_map.shape)
         density_map += eggs * gaussian(x, y, col, row, sigma)
@@ -72,7 +115,7 @@ def obtener_densidad_inicial(tif_bg, ruta_datos):
 
     # Aplanar density_map para usarlo como sizes (opcional)
     sizes = 10 * nro_huevos
-    
+
     # Crear la figura y el subplot
     fig, ax = plt.subplots(figsize=(10, 8))
 
